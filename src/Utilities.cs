@@ -81,14 +81,13 @@ namespace B2Net {
 		}
 
 		public static string DetermineBucketId(B2Config options, string bucketId) {
-			// Check for a persistant bucket
-			if (!options.PersistBucket && string.IsNullOrEmpty(bucketId)) {
+			// Check for a persistent bucket
+			if (string.IsNullOrEmpty(options.BucketId) && string.IsNullOrEmpty(bucketId)) {
 				throw new ArgumentNullException(nameof(bucketId),
-					"You must either Persist a Bucket or provide a BucketId in the method call.");
+					"You must either Configure a Bucket or provide a BucketId in the method call.");
 			}
 
-			// Are we persisting buckets? If so use the one from settings
-			return options.PersistBucket ? options.BucketId : bucketId;
+			return bucketId ?? options.BucketId;
 		}
 
 		private static string HexStringFromBytes(byte[] bytes) {

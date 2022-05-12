@@ -16,14 +16,6 @@ namespace B2Net.Models {
 		public string ApplicationKey { get; init; }
 		public string KeyName { get; init; }
 		public int RequestTimeout { get; init; }
-
 		public string BucketId { get; init; }
-
-		/// <summary>
-		/// Setting this to true will use this bucket by default for all
-		/// api calls made from this client. Useful if your app will
-		/// only ever use one bucket. Default: false.
-		/// </summary>
-		public bool PersistBucket { get; init; }
 	}
 }
