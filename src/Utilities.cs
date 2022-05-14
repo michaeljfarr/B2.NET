@@ -87,7 +87,7 @@ namespace B2Net {
 					"You must either Configure a Bucket or provide a BucketId in the method call.");
 			}
 
-			return bucketId ?? options.BucketId;
+			return string.IsNullOrEmpty(bucketId) ? options.BucketId : bucketId;
 		}
 
 		private static string HexStringFromBytes(byte[] bytes) {
