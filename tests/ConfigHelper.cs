@@ -16,7 +16,7 @@ namespace B2NET.Tests {
 				.AddUserSecrets<ConfigHelper>(true);
 			var configRoot = configBuilder.Build();
 			var serviceCollection = new ServiceCollection();
-			serviceCollection.Configure<B2ConfigMap>(configRoot.GetSection("B2Configs"));
+			serviceCollection.Configure<B2ConfigMap>(configRoot.GetSection("B2"));
 			var serviceProvider = serviceCollection.BuildServiceProvider();
 
 			var configOptions = serviceProvider.GetRequiredService<IOptions<B2ConfigMap>>();
