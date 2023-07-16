@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
-using B2Net.Tests;
-using B2Net;
 using B2Net.Http;
 using B2Net.Models;
-using B2Net.Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
@@ -64,9 +60,9 @@ namespace B2Net.Tests {
 		public void DoWeGetOptionsBack() {
 			var result = B2Client.Authorize(Options, Options.StaticHttpClient());
 
-			Assert.AreNotEqual("0", result.AbsoluteMinimumPartSize);
-			Assert.AreNotEqual("0", result.MinimumPartSize);
-			Assert.AreNotEqual("0", result.RecommendedPartSize);
+			Assert.AreNotEqual(0, result.AbsoluteMinimumPartSize);
+			Assert.AreNotEqual(0, result.MinimumPartSize);
+			Assert.AreNotEqual(0, result.RecommendedPartSize);
 			Assert.IsFalse(string.IsNullOrEmpty(result.DownloadUrl));
 			Assert.IsFalse(string.IsNullOrEmpty(result.ApiUrl));
 		}
